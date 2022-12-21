@@ -16,7 +16,8 @@ def main():
         load_dotenv('./.env')
 
     # When running on Azure App Service you should use the production settings.
-    settings_module = "tsukutopi.production" if 'WEBSITE_HOSTNAME' in os.environ else 'tsukutopi.settings'
+    # settings_module = "tsukutopi.production" if 'WEBSITE_HOSTNAME' in os.environ else 'tsukutopi.settings'
+    settings_module = "tsukutopi.production"
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
     # ここまでコピペ
     # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tsukutopi.settings')
