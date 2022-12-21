@@ -7,7 +7,7 @@ name: Build and deploy Python app to Azure Web App - tsukutopi
 on:
   push:
     branches:
-      - main
+      - createDB
   workflow_dispatch:
 
 jobs:
