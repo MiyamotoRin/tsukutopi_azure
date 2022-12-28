@@ -1,5 +1,8 @@
 from .settings import *
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Configure the domain name using the environment variable
 # that Azure automatically creates for us.
