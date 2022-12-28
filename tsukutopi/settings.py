@@ -31,11 +31,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 
                 'tsukutopi.azurewebsites.net',]
-
+CSRF_TRUSTED_ORIGINS = ['https://tsukutopi.azurewebsites.net',] 
 
 # Application definition
 
@@ -60,6 +60,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 ROOT_URLCONF = 'tsukutopi.urls'
 
@@ -86,13 +90,21 @@ WSGI_APPLICATION = 'tsukutopi.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': DBNAME,
+    #     'USER': DBUSER,
+    #     'PASSWORD': DBPASS,
+    #     'HOST': DBHOST,
+    #     'PORT': '5432',
+    # }
+
+        'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': DBNAME,
+        'HOST': DBHOST + ".postgres.database.azure.com",
         'USER': DBUSER,
-        'PASSWORD': DBPASS,
-        'HOST': DBHOST,
-        'PORT': '5432',
+        'PASSWORD': DBPASS 
     }
 }
 
