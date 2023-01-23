@@ -24,4 +24,3 @@ class Profile(models.Model):
     anime=models.CharField(max_length=50)
     movie=models.CharField(max_length=50)
     sport=models.CharField(max_length=50)
-    
